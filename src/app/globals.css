@@ -19,6 +19,7 @@ html {
 /* Light Theme */
 html[data-theme="light"] {
   --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f7f6fe;
   --accent-hover-color: #5a3ec7;
   --text-color: #000000;
   --pagination-bg-color: #e0e0e0;
@@ -29,6 +30,7 @@ html[data-theme="light"] {
 /* Dark Theme */
 html[data-theme="dark"] {
   --primary-bg-color: #1d1e42;
+  --secondary-bg-color: #26264f;
   --accent-hover-color: #7b5dff;
   --text-color: #ffffff;
   --pagination-bg-color: #141432;

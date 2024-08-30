@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -10,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         primaryBgColor: "var(--primary-bg-color)",
+        secondaryBgColor: "var(--secondary-bg-color)",
         textColor: "var(--text-color)",
         accentColor: "var(--accent-color)",
         accentHoverColor: "var(--accent-hover-color)",
@@ -28,6 +30,21 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  corePlugins: {
+    container: false,
+  },
+  plugins: [
+    function ({ addComponents }: PluginAPI) {
+      addComponents({
+        ".container": {
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+          width: "1110px",
+        },
+      });
+    },
+  ],
 };
 export default config;
