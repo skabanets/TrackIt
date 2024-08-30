@@ -43,7 +43,7 @@ body {
 }
 
 .primary-btn {
-  @apply bg-accentColor hover:bg-accentHoverColor text-textColor;
+  @apply bg-accentColor hover:bg-accentHoverColor rounded-lg text-xs text-white;
 }
 
 .secondary-btn {
