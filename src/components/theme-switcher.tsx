@@ -1,8 +1,8 @@
 "use client";
 
-import { useTheme } from "../hooks";
-import { themes } from "../constants";
-import { Button } from ".";
+import { useTheme } from "@/hooks";
+import { themes } from "@/constants";
+import { Button } from "@/components";
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
