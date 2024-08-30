@@ -39,7 +39,7 @@ html[data-theme="dark"] {
 }
 
 body {
-  @apply bg-primaryBgColor text-textColor text-sm;
+  @apply bg-primaryBgColor text-textColor text-sm font-medium;
 }
 
 .primary-btn {
