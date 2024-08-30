@@ -48,18 +48,19 @@ export const ItemsPerPageSelector = () => {
         <div
           ref={dropdownRef}
           defaultValue={options[0].id}
-          className={`text-textColor bg-paginationBgColor px-[9px]rounded-lg flex h-[31px] w-[43px] cursor-pointer items-center gap-1 rounded-lg border px-2 py-2 ${isOpen && "border-searchBarColor"}`}
+          className={`px-[9px]rounded-lg flex h-[31px] w-[43px] cursor-pointer items-center gap-1 rounded-lg border bg-paginationBgColor px-2 py-2 text-textColor ${isOpen ? "border-searchBarColor" : "border-paginationBgColor"}`}
           onClick={handleDropdownClick}
         >
-          {value} <ArrowSvg className="fill-searchBarColor h-2 w-2" />
+          {value}{" "}
+          <ArrowSvg className={`h-2 w-2 shrink-0 fill-searchBarColor ${isOpen && "rotate-180"}`} />
         </div>
         {isOpen && (
-          <ul className="bg-paginationBgColor text-textColor border-searchBarColor absolute top-[36px] z-10 w-[43px] rounded-md border">
+          <ul className="absolute top-[36px] z-10 w-[43px] rounded-md border border-searchBarColor bg-paginationBgColor text-textColor">
             {options.map(option => (
               <li
                 key={option.id}
                 value={option.value}
-                className={`hover:bg-accentColor cursor-pointer px-2 first:rounded-t-[4px] last:rounded-b-[4px] ${
+                className={`cursor-pointer px-2 first:rounded-t-[4px] last:rounded-b-[4px] hover:bg-accentColor ${
                   value === option.value && "bg-sortArrowColor"
                 }`}
                 onClick={() => handleSelectOption(option.value)}
