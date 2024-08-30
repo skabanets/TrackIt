@@ -41,3 +41,11 @@ html[data-theme="dark"] {
 body {
   @apply bg-primaryBgColor text-textColor text-sm;
 }
+
+.primary-btn {
+  @apply bg-accentColor hover:bg-accentHoverColor text-textColor;
+}
+
+.secondary-btn {
+  @apply bg-transparent;
+}
