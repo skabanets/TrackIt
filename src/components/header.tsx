@@ -4,7 +4,7 @@ import { Logo, ThemeSwitcher } from "@/components";
 
 export const Header = () => {
   return (
-    <header className="bg-secondaryBgColor shadow-lg">
+    <header className="bg-secondaryBgColor shadow-md">
       <div className="container flex items-center justify-between p-4">
         <Logo />
         <ThemeSwitcher />
