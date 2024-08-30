@@ -2,6 +2,7 @@
 
 import { useTheme } from "../hooks";
 import { themes } from "../constants";
+import { Button } from ".";
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
@@ -12,8 +13,8 @@ export const ThemeSwitcher = () => {
   };
 
   return (
-    <button onClick={handleToggleTheme} type="button">
+    <Button onClick={handleToggleTheme} type="button" className="secondary-btn">
       Switch to {theme === "light" ? "dark" : "light"} theme
-    </button>
+    </Button>
   );
 };

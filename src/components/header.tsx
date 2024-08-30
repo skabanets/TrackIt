@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo, ThemeSwitcher } from "../components";
+import { Logo, ThemeSwitcher } from ".";
 
 export const Header = () => {
   return (
