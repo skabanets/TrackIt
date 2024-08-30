@@ -7,9 +7,9 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      className="text-accentColor hover:text-accentHoverColor flex items-center justify-center gap-1 text-2xl font-bold"
+      className="text-accentColor hover:text-accentHoverColor group flex items-center justify-center gap-1 text-2xl font-bold"
     >
-      <LogoSvg className="fill-accentColor h-8 w-8" />
+      <LogoSvg className="fill-accentColor group-hover:fill-accentHoverColor h-8 w-8" />
       TrackIt
     </Link>
   );
