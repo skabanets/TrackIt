@@ -6,11 +6,15 @@ import ArrowSvg from "public/arrow.svg";
 
 export const ItemsPerPageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState<number>(() => {
-    const savedValue = localStorage.getItem("itemsPerPage");
-    return savedValue ? parseInt(savedValue, 10) : itemsQuantityOptions[0].value;
-  });
+  const [value, setValue] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const savedValue = localStorage.getItem("itemsPerPage");
+    if (savedValue) {
+      setValue(parseInt(savedValue, 10));
+    }
+  }, []);
 
   useEffect(() => {
     const handleCloseList = (e: MouseEvent) => {
@@ -26,7 +30,9 @@ export const ItemsPerPageSelector = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("itemsPerPage", value.toString());
+    if (value !== null) {
+      localStorage.setItem("itemsPerPage", value.toString());
+    }
   }, [value]);
 
   const handleDropdownClick = (e: React.MouseEvent<HTMLDivElement>) => {
