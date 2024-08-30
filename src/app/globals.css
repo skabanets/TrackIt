@@ -35,3 +35,7 @@ html[data-theme="dark"] {
   --pagination-text-color: #9e9e9e;
   --search-bar-color: #ffffff;
 }
+
+body {
+  @apply bg-primaryBgColor text-textColor text-sm;
+}
