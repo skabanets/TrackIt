@@ -8,10 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        primaryBgColor: "var(--primary-bg-color)",
+        textColor: "var(--text-color)",
+        accentColor: "var(--accent-color)",
+        accentHoverColor: "var(--accent-hover-color)",
+        paginationBgColor: "var(--pagination-bg-color)",
+        paginationTextColor: "var(--pagination-text-color)",
+        searchBarColor: "var(--search-bar-color)",
+        editIconColor: "var(--edit-icon-color)",
+        deleteIconColor: "var(--delete-icon-color)",
+        sortArrowColor: "var(--sort-arrow-color)",
+        processBgColor: "var(--process-bg-color)",
+        processTextColor: "var(--process-text-color)",
+        deliveredBgColor: "var(--delivered-bg-color)",
+        deliveredTextColor: "var(--delivered-text-color)",
+        canceledBgColor: "var(--canceled-bg-color)",
+        canceledTextColor: "var(--canceled-text-color)",
       },
     },
   },
