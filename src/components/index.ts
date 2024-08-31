@@ -6,3 +6,4 @@ export * from "./tool-bar";
 export * from "./items-per-page-selector";
 export * from "./theme-provider";
 export * from "./search-bar";
+export * from "./table";
