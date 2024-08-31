@@ -61,3 +61,7 @@ thead th {
 .th-center {
   @apply justify-center;
 }
+
+.sort-icon {
+  @apply h-4 w-4 fill-sortArrowColor;
+}
