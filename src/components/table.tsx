@@ -1,42 +1,36 @@
-import { format } from "date-fns";
-import Image from "next/image";
-
-import { ActionButtons, SortButton, StatusLabel } from "@/components";
-
-import { getPurchaseStatus } from "@/helpers";
+import { SortButton, TableItem } from "@/components";
 
 export const Table = () => {
   const currentData = [
     {
-      "Tracking ID": 52849,
-      "Product Image": "https://hotline.ua/img/tx/343/3437076345.jpg",
-      "Product Name": "Phone lsdldsllsdl",
-      Customer: "Martha Hammond",
-      Date: "2023-09-21",
-      Amount: 883.42,
-      "Payment Mode": "Debit Card",
-      Status: "Cancelled",
+      trackingID: 52849,
+      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
+      productName: "Phone lsdldsllsdl",
+      customer: "Martha Hammond",
+      date: "2023-09-21",
+      amount: 883.42,
+      paymentMode: "Debit Card",
+      status: "Cancelled",
     },
     {
-      "Tracking ID": 16771,
-      "Product Image": "https://hotline.ua/img/tx/343/3437076345.jpg",
-      "Product Name": "Phone",
-      Customer: "Douglas Hernandez",
-      Date: "2024-03-19",
-      Amount: 384.97,
-      "Payment Mode": "Cash on Delivery",
-
-      Status: "Delivered",
+      trackingID: 16771,
+      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
+      productName: "Phone",
+      customer: "Douglas Hernandez",
+      date: "2024-03-19",
+      amount: 384.97,
+      paymentMode: "Cash on Delivery",
+      status: "Delivered",
     },
     {
-      "Tracking ID": 81774,
-      "Product Image": "https://hotline.ua/img/tx/343/3437076345.jpg",
-      "Product Name": "Phone",
-      Customer: "Lisa Jordan",
-      Date: "2023-11-26",
-      Amount: 261.75,
-      "Payment Mode": "Debit Card",
-      Status: "Process",
+      trackingID: 81774,
+      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
+      productName: "Phone",
+      customer: "Lisa Jordan",
+      date: "2023-11-26",
+      amount: 261.75,
+      paymentMode: "Debit Card",
+      status: "Process",
     },
   ];
 
@@ -64,32 +58,7 @@ export const Table = () => {
       </thead>
       <tbody>
         {currentData.map(item => (
-          <tr
-            key={item["Tracking ID"]}
-            className="tr-style even: h-[64px] font-medium odd:bg-secondaryBgColor"
-          >
-            <td className="unit-center">&#35;{item["Tracking ID"]}</td>
-            <td className="flex items-center justify-start gap-2">
-              <Image
-                src={item["Product Image"]}
-                width={32}
-                height={32}
-                alt="product image"
-                className="rounded-md"
-              />{" "}
-              <p className="line-clamp-1">{item["Product Name"]}</p>
-            </td>
-            <td>{item["Customer"]}</td>
-            <td>{format(item["Date"], "dd/MM/yyyy")}</td>
-            <td>&#36;{item["Amount"]}</td>
-            <td>{item["Payment Mode"]}</td>
-            <td>
-              <StatusLabel status={getPurchaseStatus(item["Status"])} />
-            </td>
-            <td className="unit-center">
-              <ActionButtons />
-            </td>
-          </tr>
+          <TableItem key={item.trackingID} item={{ ...item, date: new Date(item.date) }} />
         ))}
       </tbody>
     </table>

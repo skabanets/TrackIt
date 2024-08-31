@@ -10,3 +10,4 @@ export * from "./table";
 export * from "./sort-button";
 export * from "./action-buttons";
 export * from "./status-label";
+export * from "./table-item";

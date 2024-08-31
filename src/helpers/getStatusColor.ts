@@ -1,12 +1,12 @@
-import { PurchaseStatus } from "@/constants";
+import type { PurchaseStatus } from "@/types";
 
 export const getStatusColor = (status: PurchaseStatus) => {
   switch (status) {
-    case PurchaseStatus.Process:
+    case "Process":
       return "bg-processBgColor text-processTextColor";
-    case PurchaseStatus.Delivered:
+    case "Delivered":
       return "bg-deliveredBgColor text-deliveredTextColor";
-    case PurchaseStatus.Cancelled:
+    case "Cancelled":
       return "bg-canceledBgColor text-canceledTextColor";
     default:
       return "";

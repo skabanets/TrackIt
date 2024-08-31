@@ -1,7 +1,7 @@
 "use client";
 
-import { PurchaseStatus } from "@/constants";
 import { getStatusColor } from "@/helpers";
+import { PurchaseStatus } from "@/types";
 
 interface StatusLabelProps {
   status: PurchaseStatus;
