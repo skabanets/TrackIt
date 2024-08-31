@@ -8,6 +8,9 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    domains: ["hotline.ua"],
+  },
 };
 
 export default nextConfig;

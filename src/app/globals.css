@@ -50,16 +50,25 @@ body {
   @apply bg-transparent;
 }
 
+th,
+td {
+  @apply flex w-[120.75px] p-0 leading-[14px];
+}
+
 th {
-  @apply w-[120.75px];
+  @apply justify-between;
 }
 
-thead th {
-  @apply flex h-[17px] justify-between font-bold leading-[14px];
+td {
+  @apply line-clamp-1 justify-start;
 }
 
-.th-center {
-  @apply justify-center;
+.tr-style {
+  @apply flex items-center gap-4 py-4;
+}
+
+.unit-center {
+  @apply flex justify-center;
 }
 
 .sort-icon {
