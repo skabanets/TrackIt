@@ -1,4 +1,3 @@
-import { SortButton } from "./sort-button";
 export * from "./logo";
 export * from "./button";
 export * from "./header";
@@ -9,3 +8,4 @@ export * from "./theme-provider";
 export * from "./search-bar";
 export * from "./table";
 export * from "./sort-button";
+export * from "./action-buttons";

@@ -1,4 +1,4 @@
-import { SortButton } from "@/components";
+import { ActionButtons, SortButton } from "@/components";
 import { format } from "date-fns";
 import Image from "next/image";
 
@@ -81,7 +81,9 @@ export const Table = () => {
             <td>&#36;{item["Amount"]}</td>
             <td>{item["Payment Mode"]}</td>
             <td>{item["Status"]}</td>
-            <td className="unit-center">Action btn</td>
+            <td className="unit-center">
+              <ActionButtons />
+            </td>
           </tr>
         ))}
       </tbody>
