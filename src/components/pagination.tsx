@@ -38,7 +38,7 @@ export const Pagination = ({ itemsPerPage, items }: PaginationProps) => {
         renderOnZeroPageCount={null}
         containerClassName="w-full flex justify-center items-center py-4 gap-3 text-xs" // Контейнер для всех элементов пагинации
         pageClassName="w-[31px] h-[31px] rounded-md cursor-pointer bg-paginationBgColor" // Класс для страниц
-        activeClassName="bg-accentColor text-white hover:bg-accentHoverColor" // Класс для активной страницы
+        activeClassName="bg-[#624de3] text-white hover:bg-accentHoverColor" // Класс для активной страницы
         previousClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor" // Класс для кнопки "Предыдущая"
         nextClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor" // Класс для кнопки "Следующая"
         breakClassName="w-[12px] h-[31px] flex justify-center items-center rounded-md cursor-pointer bg-transporent text-paginationTextColor" // Класс для разделителя "..."
