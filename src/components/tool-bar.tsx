@@ -5,7 +5,7 @@ import PlusSvg from "public/plus.svg";
 
 export const ToolBar = () => {
   return (
-    <div className="flex w-full flex-row items-center justify-between pt-[32px]">
+    <div className="flex flex-row items-center justify-between pb-4 pt-[32px]">
       <div className="flex items-center gap-6">
         <ItemsPerPageSelector />
         <SearchBar />

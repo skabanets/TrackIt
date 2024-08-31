@@ -39,13 +39,25 @@ html[data-theme="dark"] {
 }
 
 body {
-  @apply bg-primaryBgColor text-textColor text-sm font-medium;
+  @apply bg-primaryBgColor text-sm font-medium text-textColor;
 }
 
 .primary-btn {
-  @apply bg-accentColor hover:bg-accentHoverColor rounded-lg text-xs text-white;
+  @apply rounded-lg bg-accentColor text-xs text-white hover:bg-accentHoverColor;
 }
 
 .secondary-btn {
   @apply bg-transparent;
+}
+
+th {
+  @apply w-[120.75px];
+}
+
+thead th {
+  @apply flex h-[17px] justify-between font-bold leading-[14px];
+}
+
+.th-center {
+  @apply justify-center;
 }

@@ -39,8 +39,8 @@ const config: Config = {
         ".container": {
           marginLeft: "auto",
           marginRight: "auto",
-          paddingLeft: "20px",
-          paddingRight: "20px",
+          paddingLeft: "16px",
+          paddingRight: "16px",
           width: "1110px",
         },
       });
