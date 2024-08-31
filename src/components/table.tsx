@@ -1,6 +1,9 @@
-import { ActionButtons, SortButton } from "@/components";
 import { format } from "date-fns";
 import Image from "next/image";
+
+import { ActionButtons, SortButton, StatusLabel } from "@/components";
+
+import { getPurchaseStatus } from "@/helpers";
 
 export const Table = () => {
   const currentData = [
@@ -33,7 +36,7 @@ export const Table = () => {
       Date: "2023-11-26",
       Amount: 261.75,
       "Payment Mode": "Debit Card",
-      Status: "Cancelled",
+      Status: "Process",
     },
   ];
 
@@ -80,7 +83,9 @@ export const Table = () => {
             <td>{format(item["Date"], "dd/MM/yyyy")}</td>
             <td>&#36;{item["Amount"]}</td>
             <td>{item["Payment Mode"]}</td>
-            <td>{item["Status"]}</td>
+            <td>
+              <StatusLabel status={getPurchaseStatus(item["Status"])} />
+            </td>
             <td className="unit-center">
               <ActionButtons />
             </td>

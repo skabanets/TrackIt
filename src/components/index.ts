@@ -9,3 +9,4 @@ export * from "./search-bar";
 export * from "./table";
 export * from "./sort-button";
 export * from "./action-buttons";
+export * from "./status-label";
