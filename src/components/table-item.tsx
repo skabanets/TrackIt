@@ -10,23 +10,21 @@ interface TableItemProps {
 
 export const TableItem = ({ item }: TableItemProps) => {
   return (
-    <tr
-      key={item.trackingID}
-      className="tr-style even: h-[64px] font-medium odd:bg-secondaryBgColor"
-    >
+    <tr className="tr-style even: h-[64px] font-medium odd:bg-secondaryBgColor">
       <td className="unit-center">&#35;{item.trackingID}</td>
       <td className="flex items-center justify-start gap-2">
         <Image
           src={item.productImage}
           width={32}
           height={32}
+          style={{ objectFit: "cover" }}
           alt="product image"
-          className="rounded-md"
+          className="rounded-md bg-white shadow-sm"
         />
         <p className="line-clamp-1">{item.productName}</p>
       </td>
       <td>{item.customer}</td>
-      <td>{format(item.date, "dd/MM/yyyy")}</td>
+      <td>{format(new Date(item.date), "dd/MM/yyyy")}</td>
       <td>&#36;{item.amount}</td>
       <td>{item.paymentMode}</td>
       <td>
