@@ -74,7 +74,3 @@ td {
 .sort-icon {
   @apply h-4 w-4 fill-sortArrowColor;
 }
-
-.pageClassName {
-  @apply h-[31px] w-[31px] rounded-md bg-paginationBgColor;
-}
