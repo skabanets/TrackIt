@@ -36,12 +36,12 @@ export const Pagination = ({ itemsPerPage, items }: PaginationProps) => {
         pageCount={pageCount}
         previousLabel="Previous"
         renderOnZeroPageCount={null}
-        containerClassName="w-full flex justify-center items-center py-4 gap-3 text-xs" // Контейнер для всех элементов пагинации
-        pageClassName="w-[31px] h-[31px] rounded-md cursor-pointer bg-paginationBgColor" // Класс для страниц
-        activeClassName="bg-accentColor text-white hover:bg-accentHoverColor" // Класс для активной страницы
-        previousClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor" // Класс для кнопки "Предыдущая"
-        nextClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor" // Класс для кнопки "Следующая"
-        breakClassName="w-[12px] h-[31px] flex justify-center items-center rounded-md cursor-pointer bg-transporent text-paginationTextColor" // Класс для разделителя "..."
+        containerClassName="w-full flex justify-center items-center py-4 gap-3 text-xs"
+        pageClassName="w-[31px] h-[31px] rounded-md cursor-pointer bg-paginationBgColor"
+        activeClassName="active-page"
+        previousClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
+        nextClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
+        breakClassName="w-[12px] h-[31px] flex justify-center items-center rounded-md cursor-pointer bg-transporent text-paginationTextColor"
         disabledClassName="opacity-50 cursor-not-allowed"
         pageLinkClassName="w-full h-full flex justify-center items-center"
       />
