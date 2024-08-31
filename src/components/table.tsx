@@ -1,4 +1,5 @@
 import { SortButton } from "@/components";
+import { format } from "date-fns";
 import Image from "next/image";
 
 export const Table = () => {
@@ -76,7 +77,7 @@ export const Table = () => {
               <p className="line-clamp-1">{item["Product Name"]}</p>
             </td>
             <td>{item["Customer"]}</td>
-            <td>{item["Date"]}</td>
+            <td>{format(item["Date"], "dd/MM/yyyy")}</td>
             <td>&#36;{item["Amount"]}</td>
             <td>{item["Payment Mode"]}</td>
             <td>{item["Status"]}</td>
