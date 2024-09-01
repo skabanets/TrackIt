@@ -9,7 +9,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["hotline.ua"],
+    domains: ["www.istore.ua"],
   },
 };
 
