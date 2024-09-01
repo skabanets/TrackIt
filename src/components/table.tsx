@@ -1,39 +1,12 @@
+"use client";
+
 import { SortButton, TableItem } from "@/components";
+import { Order } from "@/types";
 
-export const Table = () => {
-  const currentData = [
-    {
-      trackingID: 52849,
-      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
-      productName: "Phone lsdldsllsdl",
-      customer: "Martha Hammond",
-      date: "2023-09-21",
-      amount: 883.42,
-      paymentMode: "Debit Card",
-      status: "Cancelled",
-    },
-    {
-      trackingID: 16771,
-      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
-      productName: "Phone",
-      customer: "Douglas Hernandez",
-      date: "2024-03-19",
-      amount: 384.97,
-      paymentMode: "Cash on Delivery",
-      status: "Delivered",
-    },
-    {
-      trackingID: 81774,
-      productImage: "https://hotline.ua/img/tx/343/3437076345.jpg",
-      productName: "Phone",
-      customer: "Lisa Jordan",
-      date: "2023-11-26",
-      amount: 261.75,
-      paymentMode: "Debit Card",
-      status: "Process",
-    },
-  ];
-
+interface TableProps {
+  orders: Order[];
+}
+export const Table = ({ orders }: TableProps) => {
   return (
     <table>
       <thead>
@@ -57,8 +30,8 @@ export const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {currentData.map(item => (
-          <TableItem key={item.trackingID} item={{ ...item, date: new Date(item.date) }} />
+        {orders.map(item => (
+          <TableItem key={item.trackingID} item={item} />
         ))}
       </tbody>
     </table>
