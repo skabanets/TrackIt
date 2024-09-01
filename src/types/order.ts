@@ -5,7 +5,7 @@ export interface Order {
   productImage: string;
   productName: string;
   customer: string;
-  date: Date;
+  date: string;
   amount: number;
   paymentMode: string;
   status: string;
