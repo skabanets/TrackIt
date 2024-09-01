@@ -15,7 +15,7 @@ export const ToolBar = () => {
         type="button"
       >
         <PlusSvg className="h-4 w-4 fill-white" />
-        Add Customer
+        Add Order
       </Button>
     </div>
   );
