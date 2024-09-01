@@ -1,10 +1,12 @@
 "use client";
 
-import { Themes } from "@/constants";
-import { Button } from "@/components";
 import { useTheme } from "next-themes";
+
 import SunSvg from "public/sun.svg";
 import MoonSvg from "public/moon.svg";
+
+import { Themes } from "@/constants";
+import { Button } from "@/components";
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();

@@ -1,6 +1,6 @@
 "use client";
 
-import { PurchaseStatus } from "@/types";
+import type { PurchaseStatus } from "@/types";
 
 interface StatusLabelProps {
   status: PurchaseStatus;

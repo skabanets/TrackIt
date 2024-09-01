@@ -5,6 +5,8 @@ import { Header, ThemeProvider } from "@/components";
 
 import "./globals.css";
 import "modern-normalize/modern-normalize.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -29,6 +31,7 @@ export default function RootLayout({
         >
           <Header />
           <main>{children}</main>
+          <ToastContainer autoClose={2000} />
         </ThemeProvider>
       </body>
     </html>

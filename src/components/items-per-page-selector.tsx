@@ -1,9 +1,11 @@
 "use client";
 
-import { itemsQuantityOptions } from "@/constants";
-import React, { useEffect, useRef, useState } from "react";
-import ArrowSvg from "public/arrow.svg";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+
+import ArrowSvg from "public/arrow.svg";
+
+import { itemsQuantityOptions } from "@/constants";
 
 export const ItemsPerPageSelector = () => {
   const searchParams = useSearchParams();
@@ -43,7 +45,7 @@ export const ItemsPerPageSelector = () => {
     if (typeof window !== "undefined") {
       const searchParams = new URLSearchParams(window.location.search);
       searchParams.set("limit", option.toString());
-      searchParams.set("page", "1"); // Reset page to 1
+      searchParams.set("page", "1");
       const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
       window.history.pushState({}, "", newUrl);
 

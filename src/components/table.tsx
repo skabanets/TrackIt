@@ -6,6 +6,7 @@ import { Order } from "@/types";
 interface TableProps {
   orders: Order[];
 }
+
 export const Table = ({ orders }: TableProps) => {
   return (
     <table>

@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { toast } from "react-toastify";
 
-import { Order } from "@/types";
 import { EmptyListMessage, Pagination, Table, ToolBar } from "@/components";
-import { id } from "date-fns/locale";
+
 import { ordersEventEmitter } from "@/utils/ordersEventEmitter";
+import type { Order } from "@/types";
 
 interface ContentProps {
   defaultOrders: Order[];
@@ -42,7 +43,7 @@ export const PageContent = ({ defaultOrders, defaultTotalPages, baseUrl }: Conte
         setOrders(orders);
         setTotalPages(totalPages);
       } catch (error) {
-        console.error("Error fetching orders:", error);
+        toast.error("Error fetching orders");
       }
     };
 

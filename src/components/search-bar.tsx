@@ -1,8 +1,9 @@
 "use client";
 
-import { debounce } from "lodash";
-import SearchSvg from "public/search.svg";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { debounce } from "lodash";
+
+import SearchSvg from "public/search.svg";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>("");

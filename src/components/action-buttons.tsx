@@ -1,9 +1,12 @@
 "use client";
 
+import { toast } from "react-toastify";
+
 import { Button } from "@/components";
-import { ordersEventEmitter } from "@/utils/ordersEventEmitter";
 import EditSvg from "public/edit.svg";
 import TrashSvg from "public/trash.svg";
+
+import { ordersEventEmitter } from "@/utils/ordersEventEmitter";
 
 type ActionButtonsProps = {
   id: number;
@@ -21,13 +24,13 @@ export const ActionButtons = ({ id }: ActionButtonsProps) => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error:", errorData.message);
+        toast.error("Failed to delete the order");
       } else {
+        toast.success("Order deleted successfully");
         ordersEventEmitter.emit("orderDeleted");
       }
     } catch (error) {
-      console.error("Error during fetch:", error);
+      toast.error("Error during fetch");
     }
   };
 
