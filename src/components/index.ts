@@ -12,3 +12,4 @@ export * from "./action-buttons";
 export * from "./status-label";
 export * from "./table-item";
 export * from "./pagination";
+export * from "./page-content";
