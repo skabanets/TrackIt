@@ -3,8 +3,8 @@
 import { toast } from "react-toastify";
 
 import { Button } from "@/components";
-import EditSvg from "public/edit.svg";
-import TrashSvg from "public/trash.svg";
+import EditSvg from "public/icons/edit.svg";
+import TrashSvg from "public/icons/trash.svg";
 
 import { ordersEventEmitter } from "@/utils/ordersEventEmitter";
 

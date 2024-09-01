@@ -1,6 +1,6 @@
 "use client";
 
-import SortSvg from "public/sort.svg";
+import SortSvg from "public/icons/sort.svg";
 import { Button } from "@/components";
 
 export const SortButton = () => {

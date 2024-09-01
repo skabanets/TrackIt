@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from "fs/promises";
-import { Order } from "@/types/order";
+
+import type { Order } from "@/types/order";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

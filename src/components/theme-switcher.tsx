@@ -2,8 +2,8 @@
 
 import { useTheme } from "next-themes";
 
-import SunSvg from "public/sun.svg";
-import MoonSvg from "public/moon.svg";
+import SunSvg from "public/icons/sun.svg";
+import MoonSvg from "public/icons/moon.svg";
 
 import { Themes } from "@/constants";
 import { Button } from "@/components";

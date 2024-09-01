@@ -1,6 +1,6 @@
 "use client";
 
-import LogoSvg from "public/logo.svg";
+import LogoSvg from "public/icons/logo.svg";
 
 export const Logo = () => {
   return (

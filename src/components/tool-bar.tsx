@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, ItemsPerPageSelector, SearchBar } from "@/components";
-import PlusSvg from "public/plus.svg";
+import PlusSvg from "public/icons/plus.svg";
 
 interface ToolBarProps {
   isActiveTools: boolean;

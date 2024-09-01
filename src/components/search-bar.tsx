@@ -3,7 +3,7 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { debounce } from "lodash";
 
-import SearchSvg from "public/search.svg";
+import SearchSvg from "public/icons/search.svg";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>("");

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import ArrowSvg from "public/arrow.svg";
+import ArrowSvg from "public/icons/arrow.svg";
 
 import { itemsQuantityOptions } from "@/constants";
 
