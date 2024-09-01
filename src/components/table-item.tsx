@@ -31,7 +31,7 @@ export const TableItem = ({ item }: TableItemProps) => {
         <StatusLabel status={item.status as PurchaseStatus} />
       </td>
       <td className="unit-center">
-        <ActionButtons />
+        <ActionButtons id={item.trackingID} />
       </td>
     </tr>
   );

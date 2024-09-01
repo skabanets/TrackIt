@@ -43,3 +43,29 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  const { id } = await request.json();
+
+  if (!id) {
+    return NextResponse.json({ message: "ID is required" }, { status: 400 });
+  }
+
+  const filePath = path.join(process.cwd(), "src", "app", "api", "orders", "orders.json");
+
+  try {
+    const fileContents = await fs.readFile(filePath, "utf8");
+    const orders: Order[] = JSON.parse(fileContents);
+
+    const updatedOrders = orders.filter(order => order.trackingID !== id);
+
+    await fs.writeFile(filePath, JSON.stringify(updatedOrders, null, 2), "utf8");
+
+    return NextResponse.json({ message: "Order deleted successfully" });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Error reading or writing the JSON file" },
+      { status: 500 }
+    );
+  }
+}
