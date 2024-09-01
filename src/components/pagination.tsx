@@ -1,50 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 interface PaginationProps {
-  itemsPerPage: number;
-  items: number[];
+  totalPages: number;
 }
 
-export const Pagination = ({ itemsPerPage, items }: PaginationProps) => {
-  const [itemOffset, setItemOffset] = useState<number>(0);
+export const Pagination = ({ totalPages }: PaginationProps) => {
+  const searchParams = useSearchParams();
+  const [page, setPage] = useState<number | null>(null);
 
-  const endOffset: number = itemOffset + itemsPerPage;
-  const currentItems: number[] = items.slice(itemOffset, endOffset);
-  const pageCount: number = Math.ceil(items.length / itemsPerPage);
+  useEffect(() => {
+    const pageFromParams = searchParams.get("page");
+    if (pageFromParams) {
+      setPage(Number(pageFromParams));
+    } else {
+      setPage(1);
+    }
+  }, [searchParams]);
 
   const handlePageClick = (event: { selected: number }): void => {
-    const newOffset: number = event.selected * itemsPerPage;
-    setItemOffset(newOffset);
+    if (typeof window !== "undefined") {
+      const selectedPage = event.selected + 1;
+      const currentSearchParams = new URLSearchParams(window.location.search);
+
+      currentSearchParams.set("page", selectedPage.toString());
+      const newUrl = `${window.location.pathname}?${currentSearchParams.toString()}`;
+      window.history.pushState({}, "", newUrl);
+
+      const newSearchParams = new URLSearchParams(window.location.search);
+      setPage(Number(newSearchParams.get("page")));
+    }
   };
 
+  if (page === 1 && totalPages === 1) return;
+
   return (
-    <>
-      {currentItems &&
-        currentItems.map(item => (
-          <div key={item}>
-            <h3>Item #{item}</h3>
-          </div>
-        ))}
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="Next"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="Previous"
-        renderOnZeroPageCount={null}
-        containerClassName="w-full flex justify-center items-center py-4 gap-3 text-xs"
-        pageClassName="w-[31px] h-[31px] rounded-md cursor-pointer bg-paginationBgColor"
-        activeClassName="active-page"
-        previousClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
-        nextClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
-        breakClassName="w-[12px] h-[31px] flex justify-center items-center rounded-md cursor-pointer bg-transporent text-paginationTextColor"
-        disabledClassName="opacity-50 cursor-not-allowed"
-        pageLinkClassName="w-full h-full flex justify-center items-center"
-      />
-    </>
+    <ReactPaginate
+      forcePage={page ? page - 1 : 0}
+      breakLabel="..."
+      nextLabel="Next"
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={3}
+      pageCount={totalPages}
+      previousLabel="Previous"
+      renderOnZeroPageCount={null}
+      containerClassName="w-full flex justify-center items-center py-4 gap-3 text-xs"
+      pageClassName="w-[31px] h-[31px] rounded-md cursor-pointer bg-paginationBgColor"
+      activeClassName="active-page"
+      previousClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
+      nextClassName="h-[31px] flex items-center cursor-pointer text-paginationTextColor hover:text-accentHoverColor"
+      breakClassName="w-[12px] h-[31px] flex justify-center items-center rounded-md cursor-pointer bg-transporent text-paginationTextColor"
+      disabledClassName="opacity-50 cursor-not-allowed"
+      pageLinkClassName="w-full h-full flex justify-center items-center"
+    />
   );
 };
