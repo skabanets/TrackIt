@@ -1,12 +1,25 @@
-import { Pagination, Table, ToolBar } from "@/components";
+import { PageContent } from "@/components";
 
-export default function Home() {
-  const items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+export default async function Home({ searchParams }: { searchParams: any }) {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000";
+
+  const res = await fetch(`${baseUrl}/orders?${new URLSearchParams(searchParams)}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch orders data");
+  }
+
+  const { orders, totalPages } = await res.json();
+  const defaultOrders = orders;
+  const defaultTotalPages = totalPages;
+
   return (
     <section className="container flex h-[screen-64] flex-col">
-      <ToolBar />
-      <Table />
-      <Pagination items={items} itemsPerPage={1} />
+      <PageContent
+        defaultOrders={defaultOrders}
+        defaultTotalPages={defaultTotalPages}
+        baseUrl={baseUrl}
+      />
     </section>
   );
 }
