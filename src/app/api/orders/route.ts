@@ -15,9 +15,18 @@ export async function GET(request: NextRequest) {
     const fileContents = await fs.readFile(filePath, "utf8");
     const orders: Order[] = JSON.parse(fileContents);
 
-    const filteredOrders = orders.filter(order =>
-      order.productName.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredOrders = orders.filter(order => {
+      for (const value of Object.values(order)) {
+        if (typeof value === "string" && value.toLowerCase().includes(search.toLowerCase())) {
+          return true;
+        }
+
+        if (typeof value === "number" && value.toString().includes(search)) {
+          return true;
+        }
+      }
+      return false;
+    });
 
     const pageNumber = parseInt(page);
     const limitNumber = parseInt(limit);
