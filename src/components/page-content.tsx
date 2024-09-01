@@ -1,9 +1,10 @@
 "use client";
 
-import { Order } from "@/types";
-import { Pagination, Table, ToolBar } from "@/components";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+
+import { Order } from "@/types";
+import { EmptyListMessage, Pagination, Table, ToolBar } from "@/components";
 
 interface ContentProps {
   defaultOrders: Order[];
@@ -16,6 +17,7 @@ export const PageContent = ({ defaultOrders, defaultTotalPages, baseUrl }: Conte
   const [orders, setOrders] = useState<Order[]>([...defaultOrders]);
   const [totalPages, setTotalPages] = useState(defaultTotalPages);
 
+  const query = searchParams.get("limit");
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`${baseUrl}/orders?${new URLSearchParams(searchParams)}`);
@@ -36,8 +38,14 @@ export const PageContent = ({ defaultOrders, defaultTotalPages, baseUrl }: Conte
   return (
     <>
       <ToolBar />
-      <Table orders={orders} />
-      <Pagination totalPages={totalPages} />
+      {orders.length === 0 && query !== "" ? (
+        <EmptyListMessage message="No orders found" />
+      ) : (
+        <>
+          <Table orders={orders} />
+          <Pagination totalPages={totalPages} />
+        </>
+      )}
     </>
   );
 };

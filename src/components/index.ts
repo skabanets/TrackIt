@@ -13,3 +13,4 @@ export * from "./status-label";
 export * from "./table-item";
 export * from "./pagination";
 export * from "./page-content";
+export * from "./empty-list-message";

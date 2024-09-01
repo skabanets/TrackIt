@@ -14,7 +14,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
   const defaultTotalPages = totalPages;
 
   return (
-    <section className="container flex h-[screen-64] flex-col">
+    <section className="container flex flex-col">
       <PageContent
         defaultOrders={defaultOrders}
         defaultTotalPages={defaultTotalPages}
