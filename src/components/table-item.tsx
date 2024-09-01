@@ -12,7 +12,7 @@ interface TableItemProps {
 
 export const TableItem = ({ item }: TableItemProps) => {
   return (
-    <tr className="tr-style even: h-[64px] font-medium odd:bg-secondaryBgColor">
+    <tr className="tr-style h-[64px] font-medium odd:bg-secondaryBgColor">
       <td className="unit-center">&#35;{item.trackingID}</td>
       <td className="flex items-center justify-start gap-2">
         <Image
